@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IndiaJobHub - All India Government and Private Jobs Portal">
+  <title>IndiaJobHub | All India Jobs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#"><span>🇮🇳</span> IndiaJobHub</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <nav id="navMenu">
+      <a href="#jobs">Latest Jobs</a>
+      <a href="#categories">Categories</a>
+      <a href="#states">States</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="pill">🇮🇳 ALL INDIA JOBS PORTAL</span>
+      <h1>Find Your Next <span>Job Opportunity</span></h1>
+      <p>Government jobs, private jobs, admit cards, results and career updates in one place.</p>
+      <div class="searchbox">
+        <input id="searchInput" type="search" placeholder="Search SSC, Railway, Police, ITI, Graduate...">
+        <button id="searchBtn">Search</button>
+      </div>
+      <div class="quick">
+        <button data-quick="Government">Government</button>
+        <button data-quick="Private">Private</button>
+        <button data-quick="10th">10th Pass</button>
+        <button data-quick="12th">12th Pass</button>
+        <button data-quick="Graduate">Graduate</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container stats">
+  <div><b id="jobCount">0</b><span>Jobs Listed</span></div>
+  <div><b>28</b><span>States Covered</span></div>
+  <div><b>24/7</b><span>Job Updates</span></div>
+</section>
+
+<section class="container section" id="jobs">
+  <div class="section-head">
+    <div><span class="eyebrow">OPPORTUNITIES</span><h2>Latest Jobs</h2></div>
+    <button class="reset" id="resetBtn">Reset Filters</button>
+  </div>
+
+  <div class="filters">
+    <select id="typeFilter"><option value="">All Types</option><option>Government</option><option>Private</option></select>
+    <select id="qualFilter"><option value="">All Qualifications</option><option>10th</option><option>12th</option><option>ITI</option><option>Diploma</option><option>Graduate</option></select>
+    <select id="stateFilter"><option value="">All States</option></select>
+    <select id="sortFilter"><option value="latest">Latest First</option><option value="deadline">Deadline Soon</option></select>
+  </div>
+
+  <div id="jobsGrid" class="jobs-grid"></div>
+  <div id="empty" class="empty hidden">No matching jobs found. Try changing your filters.</div>
+</section>
+
+<section class="container section" id="categories">
+  <div class="section-head"><div><span class="eyebrow">BROWSE</span><h2>Popular Categories</h2></div></div>
+  <div class="category-grid">
+    <button class="category" data-quick="SSC">🏛️<b>SSC</b><small>Staff Selection</small></button>
+    <button class="category" data-quick="Railway">🚆<b>Railway</b><small>Indian Railways</small></button>
+    <button class="category" data-quick="Banking">🏦<b>Banking</b><small>Bank & Finance</small></button>
+    <button class="category" data-quick="Police">👮<b>Police</b><small>Police & Defence</small></button>
+    <button class="category" data-quick="Teaching">📚<b>Teaching</b><small>Education</small></button>
+    <button class="category" data-quick="IT">💻<b>IT & Tech</b><small>Technology</small></button>
+  </div>
+</section>
+
+<section class="container section" id="states">
+  <div class="section-head"><div><span class="eyebrow">LOCATION</span><h2>Jobs by State</h2></div></div>
+  <div class="states" id="stateButtons"></div>
+</section>
+
+<section class="container info" id="about">
+  <h2>IndiaJobHub</h2>
+  <p>A simple job-discovery portal template. Always verify eligibility, dates and application instructions on the official recruitment website before applying.</p>
+</section>
+</main>
+
+<footer>
+  <div class="container footer"><b>🇮🇳 IndiaJobHub</b><span>© 2026 IndiaJobHub • Job information portal</span></div>
+</footer>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button class="close" id="closeModal">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
