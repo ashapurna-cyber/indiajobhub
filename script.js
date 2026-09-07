@@ -57,9 +57,148 @@ const jobs=[
     vacancies:"175",
     salary:"Level-10: As per ISRO notification",
     apply:"https://cdn.digialm.com/EForms/configuredHtml/1258/102146/Index.html"
+  },
+    {
+    id:5,
+    title:"UPSC Assistant Provident Fund Commissioner Recruitment 2026",
+    org:"Union Public Service Commission",
+    type:"Government",
+    qual:["Graduate"],
+    state:"All India",
+    category:"UPSC",
+    deadline:"2026-09-11",
+    date:"2026-08-22",
+    vacancies:"80",
+    salary:"Level-10",
+    apply:"https://upsconline.nic.in/ora/"
+  },
+    {
+    id:6,
+    title:"PFRDA Officer Grade A Assistant Manager Recruitment 2026",
+    org:"Pension Fund Regulatory and Development Authority",
+    type:"Government",
+    qual:["Graduate"],
+    state:"All India",
+    category:"Banking",
+    deadline:"2026-09-24",
+    date:"2026-09-03",
+    vacancies:"30",
+    salary:"As per PFRDA rules",
+    apply:"https://ibpsreg.ibps.in/pfrdajul26/"
+  },
+    {
+    id:7,
+    title:"Indian Overseas Bank Generalist and Specialist Officer Recruitment 2026",
+    org:"Indian Overseas Bank",
+    type:"Government",
+    qual:["Graduate"],
+    state:"All India",
+    category:"Banking",
+    deadline:"2026-09-15",
+    date:"2026-08-29",
+    vacancies:"291",
+    salary:"As per IOB rules",
+    apply:"https://ibpsreg.ibps.in/iobgoaug26/"
+  },
+    {
+    id:8,
+    title:"IBPS Human Resource Recruitment 2026",
+    org:"Institute of Banking Personnel Selection",
+    type:"Government",
+    qual:["Graduate"],
+    state:"All India",
+    category:"Banking",
+    deadline:"2026-09-24",
+    date:"2026-09-04",
+    vacancies:"See official notification",
+    salary:"As per notification",
+    apply:"https://ibpsreg.ibps.in/bonwejul26/"
+  },
+    {
+    id:9,
+    title:"CSIR Technician Group-II Recruitment 2026",
+    org:"Council of Scientific and Industrial Research",
+    type:"Government",
+    qual:["10th","ITI"],
+    state:"All India",
+    category:"Engineering",
+    deadline:"2026-09-17",
+    date:"2026-09-07",
+    vacancies:"43",
+    salary:"Level-2: ₹19,900–₹63,200",
+    apply:"https://recruitment.csir.res.in/groupii_2026/index.php"
+  },
+    {
+    id:10,
+    title:"BEL Deputy Engineer Recruitment 2026",
+    org:"Bharat Electronics Limited",
+    type:"Government",
+    qual:["Graduate"],
+    state:"All India",
+    category:"Engineering",
+    deadline:"2026-09-23",
+    date:"2026-09-07",
+    vacancies:"See official notification",
+    salary:"As per BEL notification",
+    apply:"https://bel-india.in/job-notifications/"
+  },
+    {
+    id:11,
+    title:"BEL ITI Apprenticeship Trainee 2026",
+    org:"Bharat Electronics Limited",
+    type:"Government",
+    qual:["ITI"],
+    state:"All India",
+    category:"IT",
+    deadline:"2026-09-26",
+    date:"2026-09-07",
+    vacancies:"See official notification",
+    salary:"Apprenticeship stipend as per rules",
+    apply:"https://bel-india.in/job-notifications/"
+  },
+    {
+    id:12,
+    title:"BEL Havildar Security Recruitment 2026",
+    org:"Bharat Electronics Limited",
+    type:"Government",
+    qual:["10th"],
+    state:"Uttarakhand",
+    category:"Police",
+    deadline:"2026-09-14",
+    date:"2026-09-07",
+    vacancies:"See official notification",
+    salary:"As per BEL notification",
+    apply:"https://bel-india.in/job-notifications/"
+  },
+    {
+    id:13,
+    title:"CSIR-NBRI Director Recruitment 2026",
+    org:"Council of Scientific and Industrial Research",
+    type:"Government",
+    qual:["Post Graduate"],
+    state:"Uttar Pradesh",
+    category:"Teaching",
+    deadline:"2026-09-15",
+    date:"2026-09-07",
+    vacancies:"1",
+    salary:"As per official notification",
+    apply:"https://www.csir.res.in/en/career-opportunities/recruitment"
+  },
+    {
+    id:14,
+    title:"UPSC Scientist-B General Meteorology Recruitment 2026",
+    org:"Union Public Service Commission",
+    type:"Government",
+    qual:["Graduate"],
+    state:"All India",
+    category:"Engineering",
+    deadline:"2026-09-11",
+    date:"2026-08-27",
+    vacancies:"30",
+    salary:"As per UPSC notification",
+    apply:"https://upsconline.nic.in/ora/"
   }
 ];
-
 const $=id=>document.getElementById(id);
 const stateFilter=$("stateFilter"), jobsGrid=$("jobsGrid");
 
@@ -210,153 +349,3 @@ document.querySelector("#stateButtons").innerHTML=
   .join("");
 
 render();
-
-  {
-    id:5,
-    title:"UPSC Assistant Provident Fund Commissioner Recruitment 2026",
-    org:"Union Public Service Commission",
-    type:"Government",
-    qual:["Graduate"],
-    state:"All India",
-    category:"UPSC",
-    deadline:"2026-09-11",
-    date:"2026-08-22",
-    vacancies:"80",
-    salary:"Level-10",
-    apply:"https://upsconline.nic.in/ora/"
-  },
-
-  {
-    id:6,
-    title:"PFRDA Officer Grade A Assistant Manager Recruitment 2026",
-    org:"Pension Fund Regulatory and Development Authority",
-    type:"Government",
-    qual:["Graduate"],
-    state:"All India",
-    category:"Banking",
-    deadline:"2026-09-24",
-    date:"2026-09-03",
-    vacancies:"30",
-    salary:"As per PFRDA rules",
-    apply:"https://ibpsreg.ibps.in/pfrdajul26/"
-  },
-
-  {
-    id:7,
-    title:"Indian Overseas Bank Generalist and Specialist Officer Recruitment 2026",
-    org:"Indian Overseas Bank",
-    type:"Government",
-    qual:["Graduate"],
-    state:"All India",
-    category:"Banking",
-    deadline:"2026-09-15",
-    date:"2026-08-29",
-    vacancies:"291",
-    salary:"As per IOB rules",
-    apply:"https://ibpsreg.ibps.in/iobgoaug26/"
-  },
-
-  {
-    id:8,
-    title:"IBPS Human Resource Recruitment 2026",
-    org:"Institute of Banking Personnel Selection",
-    type:"Government",
-    qual:["Graduate"],
-    state:"All India",
-    category:"Banking",
-    deadline:"2026-09-24",
-    date:"2026-09-04",
-    vacancies:"See official notification",
-    salary:"As per notification",
-    apply:"https://ibpsreg.ibps.in/bonwejul26/"
-  },
-
-  {
-    id:9,
-    title:"CSIR Technician Group-II Recruitment 2026",
-    org:"Council of Scientific and Industrial Research",
-    type:"Government",
-    qual:["10th","ITI"],
-    state:"All India",
-    category:"Engineering",
-    deadline:"2026-09-17",
-    date:"2026-09-07",
-    vacancies:"43",
-    salary:"Level-2: ₹19,900–₹63,200",
-    apply:"https://recruitment.csir.res.in/groupii_2026/index.php"
-  },
-
-  {
-    id:10,
-    title:"BEL Deputy Engineer Recruitment 2026",
-    org:"Bharat Electronics Limited",
-    type:"Government",
-    qual:["Graduate"],
-    state:"All India",
-    category:"Engineering",
-    deadline:"2026-09-23",
-    date:"2026-09-07",
-    vacancies:"See official notification",
-    salary:"As per BEL notification",
-    apply:"https://bel-india.in/job-notifications/"
-  },
-
-  {
-    id:11,
-    title:"BEL ITI Apprenticeship Trainee 2026",
-    org:"Bharat Electronics Limited",
-    type:"Government",
-    qual:["ITI"],
-    state:"All India",
-    category:"IT",
-    deadline:"2026-09-26",
-    date:"2026-09-07",
-    vacancies:"See official notification",
-    salary:"Apprenticeship stipend as per rules",
-    apply:"https://bel-india.in/job-notifications/"
-  },
-
-  {
-    id:12,
-    title:"BEL Havildar Security Recruitment 2026",
-    org:"Bharat Electronics Limited",
-    type:"Government",
-    qual:["10th"],
-    state:"Uttarakhand",
-    category:"Police",
-    deadline:"2026-09-14",
-    date:"2026-09-07",
-    vacancies:"See official notification",
-    salary:"As per BEL notification",
-    apply:"https://bel-india.in/job-notifications/"
-  },
-
-  {
-    id:13,
-    title:"CSIR-NBRI Director Recruitment 2026",
-    org:"Council of Scientific and Industrial Research",
-    type:"Government",
-    qual:["Post Graduate"],
-    state:"Uttar Pradesh",
-    category:"Teaching",
-    deadline:"2026-09-15",
-    date:"2026-09-07",
-    vacancies:"1",
-    salary:"As per official notification",
-    apply:"https://www.csir.res.in/en/career-opportunities/recruitment"
-  },
-
-  {
-    id:14,
-    title:"UPSC Scientist-B General Meteorology Recruitment 2026",
-    org:"Union Public Service Commission",
-    type:"Government",
-    qual:["Graduate"],
-    state:"All India",
-    category:"Engineering",
-    deadline:"2026-09-11",
-    date:"2026-08-27",
-    vacancies:"30",
-    salary:"As per UPSC notification",
-    apply:"https://upsconline.nic.in/ora/"
-  },
