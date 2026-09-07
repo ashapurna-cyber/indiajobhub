@@ -101,6 +101,24 @@
     <div id="modalContent"></div>
   </div>
 </div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyDSM0IvDsgED7602A1Xk1tRvLv6PzzFtms",
+  authDomain: "indiajobhub-e4f9f.firebaseapp.com",
+  projectId: "indiajobhub-e4f9f",
+  storageBucket: "indiajobhub-e4f9f.firebasestorage.app",
+  messagingSenderId: "699000461929",
+  appId: "1:699000461929:web:69a49ec5e0e545e8ce20f8",
+  measurementId: "G-3REHYSCRLQ"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+</script>
+
 <script src="script.js"></script>
 </body>
 </html>
