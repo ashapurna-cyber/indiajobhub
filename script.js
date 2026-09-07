@@ -1,4 +1,4 @@
-const jobs=[
+let jobs=[
   {
     id:1,
     title:"SSC Junior Engineer Recruitment 2026",
@@ -199,6 +199,30 @@ const jobs=[
     apply:"https://upsconline.nic.in/ora/"
   }
 ];
+db.collection("jobs").get().then(snapshot => {
+  jobs = snapshot.docs.map(doc => {
+    const data = doc.data();
+
+    return {
+      id: doc.id,
+      title: data.title || "",
+      org: data.org || data.organization || "",
+      type: data.jobType || "Government",
+      qual: Array.isArray(data.qualification)
+        ? data.qualification
+        : [data.qualification || ""],
+      state: data.state || data.location || "All India",
+      category: data.category || "",
+      deadline: data["Last date"] || data.lastDate || "",
+      date: data.date || "",
+      vacancies: data.vacancy || "",
+      salary: data.salary || "",
+      apply: data.applyLink || ""
+    };
+  });
+
+  render();
+});
 const $=id=>document.getElementById(id);
 const stateFilter=$("stateFilter"), jobsGrid=$("jobsGrid");
 
