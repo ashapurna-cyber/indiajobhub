@@ -216,7 +216,8 @@ db.collection("jobs").get().then(snapshot => {
         : [data.qualification || ""],
       state: data.state || data.location || "All India",
       category: data.category || "",
-      deadline: data["Last date"] || data.lastDate || "",
+      deadline: data["Last date"] || data["Last Date"] || data.lastDate || data.last_date || "",
+
       date: data.date || data["Last date"] || "",
       vacancies: data.vacancy || "",
       salary: data.salary || "",
