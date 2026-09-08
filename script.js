@@ -299,7 +299,40 @@ function render(){
   $("empty").classList.toggle("hidden",list.length>0);
 }
 
-function formatDate(x){
+function addJobSchema(j){
+  document.getElementById("jobSchema")?.remove();
+
+  if(!j) return;
+
+  const schema = document.createElement("script");
+  schema.id = "jobSchema";
+  schema.type = "application/ld+json";
+
+  schema.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": j.title,
+    "description": `${j.title}. Organization: ${j.org}. Qualification: ${j.qual.join(", ")}. Location: ${j.state}. Vacancies: ${j.vacancies}. Salary: ${j.salary}.`,
+    "datePosted": j.date,
+    "validThrough": j.deadline ? `${j.deadline}T23:59:59+05:30` : undefined,
+    "employmentType": "FULL_TIME",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": j.org
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    },
+    "url": window.location.href
+  });
+
+  document.head.appendChild(schema);
+}
+
   if(!x) return "Not specified";
 
   const d = new Date(x);
@@ -318,6 +351,8 @@ function showJob(id){
 
   const j=jobs.find(x=>String(x.id)===String(id));
 
+  addJobSchema(j);
+     
   $("modalContent").innerHTML=`
     <span class="badge ${j.type==="Private"?"private":""}">${j.type}</span>
     <h2>${j.title}</h2>
