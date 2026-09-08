@@ -217,7 +217,7 @@ db.collection("jobs").get().then(snapshot => {
       date: data.date || "",
       vacancies: data.vacancy || "",
       salary: data.salary || "",
-      apply: data.applyLink || ""
+      apply: data.applink || ""
     };
   });
 
