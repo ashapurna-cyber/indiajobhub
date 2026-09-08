@@ -240,6 +240,11 @@ db.collection("jobs").get().then(snapshot => {
       .join("");
 
   render();
+  const jobId = new URLSearchParams(window.location.search).get("job");
+
+if (jobId) {
+  showJob(jobId);
+}
 });
 
 function matches(j,q){
