@@ -299,6 +299,20 @@ function render(){
   $("empty").classList.toggle("hidden",list.length>0);
 }
 
+function formatDate(x){
+  if(!x) return "Not specified";
+
+  const d = new Date(x);
+
+  if(isNaN(d.getTime())) return x;
+
+  return d.toLocaleDateString("en-IN",{
+    day:"2-digit",
+    month:"short",
+    year:"numeric"
+  });
+}
+
 function addJobSchema(j){
   document.getElementById("jobSchema")?.remove();
 
@@ -314,7 +328,9 @@ function addJobSchema(j){
     "title": j.title,
     "description": `${j.title}. Organization: ${j.org}. Qualification: ${j.qual.join(", ")}. Location: ${j.state}. Vacancies: ${j.vacancies}. Salary: ${j.salary}.`,
     "datePosted": j.date,
-    "validThrough": j.deadline ? `${j.deadline}T23:59:59+05:30` : undefined,
+    "validThrough": j.deadline
+      ? `${j.deadline}T23:59:59+05:30`
+      : undefined,
     "employmentType": "FULL_TIME",
     "hiringOrganization": {
       "@type": "Organization",
@@ -333,29 +349,28 @@ function addJobSchema(j){
   document.head.appendChild(schema);
 }
 
-  if(!x) return "Not specified";
-
-  const d = new Date(x);
-
-  if(isNaN(d.getTime())) return x;
-
-  return d.toLocaleDateString("en-IN",{
-    day:"2-digit",
-    month:"short",
-    year:"numeric"
-  });
-}
-
 function showJob(id){
-  history.pushState({}, "", `?job=${encodeURIComponent(String(id))}`);
+  history.pushState(
+    {},
+    "",
+    `?job=${encodeURIComponent(String(id))}`
+  );
 
-  const j=jobs.find(x=>String(x.id)===String(id));
+  const j=jobs.find(
+    x=>String(x.id)===String(id)
+  );
+
+  if(!j) return;
 
   addJobSchema(j);
-     
+
   $("modalContent").innerHTML=`
-    <span class="badge ${j.type==="Private"?"private":""}">${j.type}</span>
+    <span class="badge ${j.type==="Private"?"private":""}">
+      ${j.type}
+    </span>
+
     <h2>${j.title}</h2>
+
     <p><b>${j.org}</b></p>
 
     <ul class="detail-list">
@@ -367,12 +382,17 @@ function showJob(id){
     </ul>
 
     <div class="notice">
-      Important: Verify the official notification, eligibility, fees and dates before applying.
+      Important: Verify the official notification,
+      eligibility, fees and dates before applying.
     </div>
 
     <br>
-    <a class="apply" href="${j.apply}" target="_blank" rel="noopener">
-      Visit Official Apply Website
+
+    <a class="apply"
+       href="${j.apply}"
+       target="_blank"
+       rel="noopener">
+       Visit Official Apply Website
     </a>
   `;
 
