@@ -285,7 +285,7 @@ function render(){
       </div>
 
       <div class="job-actions">
-        <button onclick="showJob(${j.id})">View Details</button>
+        <button onclick='showJob(${JSON.stringify(String(j.id))})'>View Details</button>
         <a class="apply" href="${j.apply}" target="_blank" rel="noopener">Apply</a>
       </div>
     </article>
