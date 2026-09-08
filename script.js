@@ -214,12 +214,26 @@ db.collection("jobs").get().then(snapshot => {
       state: data.state || data.location || "All India",
       category: data.category || "",
       deadline: data["Last date"] || data.lastDate || "",
-      date: data.date || "",
+      date: data.date || data["Last date"] || "",
       vacancies: data.vacancy || "",
       salary: data.salary || "",
       apply: data.applink || ""
     };
   });
+
+  stateFilter.innerHTML = '<option value="">All States</option>';
+
+  [...new Set(jobs.map(j => j.state))]
+    .sort()
+    .forEach(s => stateFilter.add(new Option(s, s)));
+
+  $("jobCount").textContent = jobs.length;
+
+  document.querySelector("#stateButtons").innerHTML =
+    [...new Set(jobs.map(j => j.state))]
+      .sort()
+      .map(s => `<button onclick="quick('${s}')">${s}</button>`)
+      .join("");
 
   render();
 });
