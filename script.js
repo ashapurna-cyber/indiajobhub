@@ -309,7 +309,9 @@ function formatDate(x){
 }
 
 function showJob(id){
-  const j=jobs.find(x=>x.id===id);
+  history.pushState({}, "", `?job=${encodeURIComponent(String(id))}`);
+
+  const j=jobs.find(x=>String(x.id)===String(id));
 
   $("modalContent").innerHTML=`
     <span class="badge ${j.type==="Private"?"private":""}">${j.type}</span>
