@@ -302,6 +302,43 @@ function render(){
 function formatDate(x){
   if(!x) return "Not specified";
 
+  // Firestore Timestamp
+  if(x && typeof x.toDate === "function"){
+    x = x.toDate();
+  }
+
+  // JavaScript Date
+  if(x instanceof Date){
+    if(isNaN(x.getTime())) return "Not specified";
+
+    return x.toLocaleDateString("en-IN",{
+      day:"2-digit",
+      month:"short",
+      year:"numeric"
+    });
+  }
+
+  // Convert to string
+  x = String(x).trim();
+
+  // DD/MM/YYYY
+  const match = x.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+
+  if(match){
+    const d = new Date(
+      Number(match[3]),
+      Number(match[2])-1,
+      Number(match[1])
+    );
+
+    return d.toLocaleDateString("en-IN",{
+      day:"2-digit",
+      month:"short",
+      year:"numeric"
+    });
+  }
+
+  // YYYY-MM-DD or normal date
   const d = new Date(x);
 
   if(isNaN(d.getTime())) return x;
