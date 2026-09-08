@@ -1,3 +1,6 @@
+const $=id=>document.getElementById(id);
+const stateFilter=$("stateFilter"), jobsGrid=$("jobsGrid");
+
 let jobs=[
   {
     id:1,
@@ -237,9 +240,6 @@ db.collection("jobs").get().then(snapshot => {
 
   render();
 });
-const $=id=>document.getElementById(id);
-const stateFilter=$("stateFilter"), jobsGrid=$("jobsGrid");
-
 [...new Set(jobs.map(j=>j.state))].sort().forEach(s=>stateFilter.add(new Option(s,s)));
 
 $("jobCount").textContent=jobs.length;
