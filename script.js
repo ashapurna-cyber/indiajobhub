@@ -294,7 +294,13 @@ function render(){
 }
 
 function formatDate(x){
-  return new Date(x+"T00:00:00").toLocaleDateString("en-IN",{
+  if(!x) return "Not specified";
+
+  const d = new Date(x);
+
+  if(isNaN(d.getTime())) return x;
+
+  return d.toLocaleDateString("en-IN",{
     day:"2-digit",
     month:"short",
     year:"numeric"
