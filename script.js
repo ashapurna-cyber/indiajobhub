@@ -240,9 +240,6 @@ db.collection("jobs").get().then(snapshot => {
 
   render();
 });
-[...new Set(jobs.map(j=>j.state))].sort().forEach(s=>stateFilter.add(new Option(s,s)));
-
-$("jobCount").textContent=jobs.length;
 
 function matches(j,q){
   const text=[j.title,j.org,j.type,j.state,j.category,...j.qual].join(" ").toLowerCase();
