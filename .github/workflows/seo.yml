@@ -1,0 +1,27 @@
+name: IndiaJobHub Automatic SEO
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check sitemap
+        run: |
+          test -f sitemap.xml
+          echo "Sitemap found"
+
+      - name: Check robots.txt
+        run: |
+          test -f robots.txt
+          echo "Robots.txt found"
+
+      - name: SEO workflow completed
+        run: echo "IndiaJobHub SEO workflow completed successfully"
