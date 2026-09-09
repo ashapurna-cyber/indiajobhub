@@ -13,15 +13,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check sitemap
+      - name: Generate sitemap
         run: |
-          test -f sitemap.xml
-          echo "Sitemap found"
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
-      - name: Check robots.txt
+          echo '  <url>' >> sitemap.xml
+          echo '    <loc>https://indiajobhub.vercel.app/</loc>' >> sitemap.xml
+          echo '    <changefreq>daily</changefreq>' >> sitemap.xml
+          echo '    <priority>1.0</priority>' >> sitemap.xml
+          echo '  </url>' >> sitemap.xml
+
+          for file in $(find . -maxdepth 2 -name "*.html" ! -name "index.html"); do
+            page=$(echo "$file" | sed 's|^\./||')
+            echo "  <url>" >> sitemap.xml
+            echo "    <loc>https://indiajobhub.vercel.app/$page</loc>" >> sitemap.xml
+            echo "    <changefreq>weekly</changefreq>" >> sitemap.xml
+            echo "    <priority>0.8</priority>" >> sitemap.xml
+            echo "  </url>" >> sitemap.xml
+          done
+
+          echo '</urlset>' >> sitemap.xml
+
+      - name: Commit updated sitemap
         run: |
-          test -f robots.txt
-          echo "Robots.txt found"
-
-      - name: SEO workflow completed
-        run: echo "IndiaJobHub SEO workflow completed successfully"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git diff --cached --quiet || git commit -m "Automatically update sitemap"
+          git push
